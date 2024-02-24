@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box; }
+
+body {
+  padding: 100px;
+  background: #fff;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #535353;
+  margin: 0;
+}
+
+#content {
+  display: relative;
+  width: 28.57%;
+  margin-left: 35.715%;
+}
+
+#formContainer {
+  height: auto;
+  min-width: 300px;
+  background-color: #fff8dc;
+  padding: 1.5rem;
+  border-radius: 0.125rem;
+}
+
+.headline {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+form {
+  padding: 0px;
+  height: auto;
+  margin: 0.6rem 0rem 1rem 0rem;
+}
+
+#phoneLabel {
+  display: block;
+  margin-left: 7px;
+  margin-bottom: 2px;
+}
+
+input, button {
+  border: none;
+  border-radius: 0.125rem;
+  font-family: inherit;
+  font-size: 100%;
+  color: inherit;
+  height: 2.5rem;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+input {
+  padding: 1rem;
+  margin: .7rem 0rem;
+}
+
+button {
+  color: #FFF;
+  background-color: #428BCA;
+}
+
+button:hover {
+  background-color: #3276B1;
+  cursor: pointer;
+}
+
+.numberJSON {
+  font-family: monospace;
+}
+
+.numberJSON .green {
+  color: #31a865;
+}
+
+.numberJSON .blue {
+  color: #368ee0;
+}
+
+.numberJSON .red {
+  color: #EA3546;
+}
+
+.numberJSON .pink {
+  color: #e043b1;
+}
+
+.numberJSON .mustard {
+  color: #fcba03;
+}

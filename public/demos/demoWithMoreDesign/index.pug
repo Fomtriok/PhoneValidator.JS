@@ -1,0 +1,147 @@
+doctype=html
+html
+  head
+    meta(charset='utf-8')
+    title PhoneValidator.JS Demo
+    style
+      include /demos/demoWithMoreDesign/style.css
+      include /intltelinput/css/intlTelInput.min.css
+
+  body
+
+    div(id='content')
+
+      div(id='formContainer')
+
+        div(class='headline') PhoneValidator.JS Demo
+
+        form(id='phoneForm' action='/demoWithMoreDesign' method='POST' class='main' onsubmit='return validateForm();')
+          label(for='phoneInput' id='phoneLabel') Phone Number
+          input(id='phoneInput')
+
+        button(type='submit' form='phoneForm') Submit
+
+      if (typeof(valid) !== 'undefined')
+        p(type='hidden' id='backendReturned' value='true')
+        p(id='backendValid' valid=`${valid}`)
+          strong Backend validation result:
+        if valid
+          p(id='backendLabel')
+            strong Valid number. Resulting augmented object:
+          p(id='backendNumber' class='numberJSON')
+            span(class='green') number: {
+            br
+            span(class='blue') &nbsp;&nbsp;&nbsp;countryCode:
+            span(class='red') &nbsp;#{number.countryCode}
+            br
+            span(class='blue') &nbsp;&nbsp;&nbsp;regionCode:
+            span(class='red') &nbsp;#{number.regionCode}
+            br
+            span(class='blue') &nbsp;&nbsp;&nbsp;countryName:
+            span(class='red') &nbsp;#{number.countryName}
+            br
+            span(class='blue') &nbsp;&nbsp;&nbsp;domesticPortion:
+            span(class='red') &nbsp;#{number.domesticPortion}
+            br
+            span(class='blue') &nbsp;&nbsp;&nbsp;full:
+            span(class='blue') &nbsp;{
+            br
+            span(class='pink') &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;international:
+            span(class='mustard') &nbsp;#{number.full.international}
+            br
+            span(class='pink') &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domestic:
+            span(class='mustard') &nbsp;#{number.full.domestic}
+            br
+            span(class='blue') &nbsp;&nbsp;&nbsp;}
+            br
+            span(class='green') }
+        else
+          p(id='backendLabel')
+            strong Invalid number.
+      else
+        p
+          strong Not validated on backend yet.
+
+      script(type='text/javascript' src='/intltelinput/js/intlTelInput.min.js')
+
+      script(type='text/javascript' src='/phoneValidatorFE/PhoneValidatorFE.js')
+
+      script(type='text/javascript').
+
+        /*
+          (1) Mandatory first argument.
+        */
+        const htmlIds = { formId: 'phoneForm', inputFieldId: 'phoneInput' };
+
+        /* (*) Optional second argument 'options'.
+    
+          options = {
+            toggleColors: true,           --- Default is true.
+            colors: {
+              valid: '#e4f8e2',           --- Default color here.
+              invalid: '#f8e2e2',         --- Default color here.
+              default: '#ffffff'          --- Default color here.
+            },
+            useTransition: true,          --- Default is true.
+            transition: 'all 0.3s ease',  --- Default transition here.
+            precise: true                 --- Default is true.
+          };
+
+        */
+
+        /*
+          (2) Instantiation.
+        */
+        let phoneValidator = new PhoneValidatorFE(htmlIds);
+
+        /*
+          Below is an example form validation. Access phoneValidator.validNumber() either before traditionally sumitting the form, or else before calling your API.
+        */
+
+        /*
+          For this demo we block the backend validation the first time its negative, but not the second.
+        */
+        var blockedSubmissions = 0;
+
+        function validateForm() {
+          if(phoneValidator.validNumber()) {
+            alert('Frontend validation: Valid number. Now commencing with form submission.');
+          } else {
+            /*
+              Prevent api call or traditional form submission.
+            */
+            if(blockedSubmissions === 0) {
+              alert('Frontend validation: Invalid number. For this demo, you may submit again to still validate the invalid number back-end.');
+              blockedSubmissions++;
+              return false;
+            } else {
+              alert('Frontend validation: Invalid number. Since you submitted a second time, the request will now be sent back-end.');
+            }
+          }
+        }
+
+      script(type='text/javascript').
+
+        /*
+          Below we reset the Demo Object once you start to write again.
+        */
+
+        document.getElementById('phoneInput').addEventListener('input', resetDemoObject);
+        document.getElementById('phoneInput').addEventListener('countrychange', resetDemoObject);
+
+        function resetDemoObject() { 
+          let elemsToRemove = ['backendReturned', 'backendValid', 'backendLabel', 'backendNumber'];
+          let demoObjectReset = false;
+          for(let i = 0; i < elemsToRemove.length; i++) {
+            let elem = document.getElementById(elemsToRemove[i])
+            if(elem !== null) {
+              elem.remove();
+              demoObjectReset = true;
+            }
+          }
+          if(demoObjectReset === true) {
+            let defaultBackendP = document.createElement('p');
+            defaultBackendP.innerHTML = '<b>Not validated on backend yet.</b>';
+            document.getElementById('content').appendChild(defaultBackendP);  
+          }
+        }

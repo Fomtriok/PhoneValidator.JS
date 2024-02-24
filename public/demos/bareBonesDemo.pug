@@ -1,0 +1,87 @@
+doctype=html
+html
+  head
+    meta(charset='utf-8')
+    title PhoneValidator.JS Demo
+    style
+      include /intltelinput/css/intlTelInput.min.css
+
+  body
+
+    form(id='phoneForm' action='/' method='POST' onsubmit='return validateForm();')
+      label(for='phoneInput') Phone Number 
+      input(id='phoneInput')
+
+    button(type='submit' form='phoneForm') Submit
+
+    if valid
+      p(id='printedJSON')
+      script(type='text/javascript').
+        var numberObject = !{JSON.stringify(number)} /* This still returns an object. */
+        var numberJSONString = JSON.stringify(numberObject, null, 2); /* Now it is truly a string. */
+        let innerHTML = '<b>Backend validation: Valid number.</b></br><pre>' + numberJSONString + '</pre>';
+        document.getElementById('printedJSON').innerHTML = innerHTML;
+    else if valid === false
+      p
+        strong Backend validation: Invalid number.
+    else
+      p
+        strong Not validated on backend yet.
+
+    script(type='text/javascript' src='/intltelinput/js/intlTelInput.min.js')
+
+    script(type='text/javascript' src='/phoneValidatorFE/PhoneValidatorFE.js')
+
+    script(type='text/javascript').
+
+      /*
+        (1) Mandatory first argument.
+      */
+      const htmlIds = { formId: 'phoneForm', inputFieldId: 'phoneInput' };
+
+      /* (*) Optional second argument 'options'.
+  
+        options = {
+          toggleColors: true,           --- Default is true.
+          colors: {
+            valid: '#e4f8e2',           --- Default color here.
+            invalid: '#f8e2e2',         --- Default color here.
+            default: '#ffffff'          --- Default color here.
+          },
+          useTransition: true,          --- Default is true.
+          transition: 'all 0.3s ease',  --- Default transition here.
+          precise: true                 --- Default is true.
+        };
+
+      */
+
+      /*
+        (2) Instantiation.
+      */
+      let phoneValidator = new PhoneValidatorFE(htmlIds);
+
+      /*
+        Below is an example form validation. Access phoneValidator.validNumber() either before traditionally sumitting the form, or else before calling your API.
+      */
+      
+      /*
+        For this demo we block the backend validation the first time its negative, but not the second.
+      */
+      var blockedSubmissions = 0;
+
+      function validateForm() {
+        if(phoneValidator.validNumber()) {
+          alert('Frontend validation: Valid number. Now commencing with form submission.');
+        } else {
+          /*
+            Prevent API call or traditional form submission.
+          */
+          if(blockedSubmissions === 0) {
+            alert('Frontend validation: Invalid number. Blocking form submission. For this demo, you may submit again to still validate the invalid number back-end.');
+            blockedSubmissions++;
+            return false;
+          } else {
+            alert('Frontend validation: Invalid number. Since you submitted a second time, the request will now be sent back-end.');
+          }
+        }
+      }
