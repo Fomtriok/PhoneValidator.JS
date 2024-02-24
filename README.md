@@ -50,7 +50,7 @@ Resulting object augmented by the backend class ```PhoneValidator``` upon positi
 
 **Brief setup instructions - [Or go to detailed instructions](#detailed-instructions)**
 
-**1** Download **PhoneValidator.JS** and put ```src/phoneValidator/``` in your src directory for the backend, and put the ```views/public/phoneValidatorFE/``` in your public directory for the frontend. Include the two classes where you will use them.
+**1** Download **PhoneValidator.JS** and put ```src/phoneValidator/``` in your src directory for the backend, and put the ```public/phoneValidatorFE/``` in your public directory for the frontend. Include the two classes where you will use them.
 
 **2** Install [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber) for the backend via ```npm install --save-prod google-libphonenumber```, and download [intl-tel-input](https://github.com/jackocnr/intl-tel-input) for the frontend and put in a public directory. The required files are: ```build/css/intlTelInput.min.css```, ```build/img/flags.png```, ```build/img/flags@2x.png```, ```build/js/data.min.js```, ```build/js/intlTelInput.min.js``` and ```build/js/utils.js```.
 
@@ -83,7 +83,7 @@ Different countries have different rules for how numbers must start when called 
 
 ## Detailed instructions
 
-**1.** Download **PhoneValidator.JS**. Put the ```src/phoneValidator/``` directory in your src directory for the backend, and put the ```views/public/phoneValidatorFE/``` directory in your public directory for the frontend. Include ```PhoneValidator``` and ```PhoneValidatorFE``` where needed.
+**1.** Download **PhoneValidator.JS**. Put the ```src/phoneValidator/``` directory in your src directory for the backend, and put the ```public/phoneValidatorFE/``` directory in your public directory for the frontend. Include ```PhoneValidator``` and ```PhoneValidatorFE``` where needed.
 
 **2.** Download [intl-tel-input](https://github.com/jackocnr/intl-tel-input) and put the files in a public directory, or install via npm, for the frontend. The required files are: ```build/css/intlTelInput.min.css```, ```build/img/flags.png```, ```build/img/flags@2x.png```, ```build/js/data.min.js```, ```build/js/intlTelInput.min.js``` and ```build/js/utils.js```.
 
