@@ -76,6 +76,8 @@ Resulting object augmented by the backend class ```PhoneValidator``` upon positi
 
 - If you have very specific demands, then you should go for a tailor-made solution. ```google-libphonenumber``` is particularly powerful and probably has what you need in that case.
 
+## Miscellaneous
+
 ### Terms for different codes
 
 - The official term for region code is "ISO 3166-1 alpha-2 country codes".
