@@ -58,7 +58,7 @@ Resulting object augmented by the backend class ```PhoneValidator``` upon positi
 
 ## Why PhoneValidator.JS
 
-- It took me some time to get the two libraries to work well in tandem, so I figured it could save some people a bit of time to have a working implementation that can be used with just a few lines.
+- **Fast and easy.** It took me some time to get the two libraries to work well in tandem, so I figured it could save some people a bit of time to have a working implementation that can be used with just a few lines.
 
 - It makes sense to both validate front-end (blocking the sending of the form if the phone number is invalid) and back-end (so as not to store invalid phone numbers in your database).
 
@@ -71,6 +71,10 @@ Resulting object augmented by the backend class ```PhoneValidator``` upon positi
 - A few things have also been added back-end, such as returning not only the full formatted number, but also country name (e.g. ```Sweden```), country code (e.g. ```1``` for America), and region code (e.g. ```US```, ```CA``` or ```VA```). Some countries or geographical areas, such as America, the UK and Australia, have several region codes for a single numeric country code, the correct one getting returned depending on the domestic number provided.
 
   - Also, back-end the parser crashes execution if an invalid number is provided, so we catch that and instead return ```false``` if the number is invalid.
+
+## Why not PhoneValidator.JS
+
+- If you have very specific demands, then you should go for a tailor-made solution. ```google-libphonenumber``` is particularly powerful and probably has what you need in that case.
 
 ### Terms for different codes
 
