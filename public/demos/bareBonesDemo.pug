@@ -39,18 +39,28 @@ html
       */
       const htmlIds = { formId: 'phoneForm', inputFieldId: 'phoneInput' };
 
-      /* (*) Optional second argument 'options'.
+      /* (*) Optional second argument 'options', with these default values:
   
-        options = {
-          toggleColors: true,           --- Default is true.
+        const options = {
+
+          // The default PhoneValidatorFE options:
+          
+          toggleColors: true,
           colors: {
-            valid: '#e4f8e2',           --- Default color here.
-            invalid: '#f8e2e2',         --- Default color here.
-            default: '#ffffff'          --- Default color here.
+            valid: '#e4f8e2',
+            invalid: '#f8e2e2',
+            default: '#ffffff'
           },
-          useTransition: true,          --- Default is true.
-          transition: 'all 0.3s ease',  --- Default transition here.
-          precise: true                 --- Default is true.
+          useTransition: true,
+          transition: 'background-color 0.3s ease',
+          precise: true,
+
+          //  The default intltelinput options:
+          
+          utilsScript: '../intltelinput/js/utils.js',
+          showSelectedDialCode: true,
+          initialCountry: 'US'
+
         };
 
       */

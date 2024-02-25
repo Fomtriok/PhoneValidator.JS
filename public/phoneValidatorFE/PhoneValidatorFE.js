@@ -32,16 +32,9 @@ class PhoneValidatorFE {
     try {
       this.#form = document.getElementById(htmlIds.formId);
       this.#inputField = document.getElementById(htmlIds.inputFieldId);
-      this.#iti = intlTelInput(this.#inputField, {
-        utilsScript: '../intltelinput/js/utils.js',
-        separateDialCode: true,
-        initialCountry: 'US'
-        /*
-          Optionally, initial country code may be defined here.
-        */
-      });
       this.#number = {};
       this.#setDefaultOptions(options);
+      this.#setIti(options);
       this.#launchEventListeners();
     } catch(exceptionVar) {
       if(typeof htmlIds === 'undefined' || !htmlIds.hasOwnProperty('formId') || !htmlIds.hasOwnProperty('inputFieldId')) {
@@ -61,17 +54,20 @@ class PhoneValidatorFE {
         default: '#ffffff'
       },
       useTransition: true,
-      transition: 'all 0.3s ease',
+      transition: 'background-color 0.3s ease',
       precise: true
     };
     if(options.hasOwnProperty('toggleColors') && typeof options.toggleColors === 'boolean') {
       this.#options.toggleColors = options.toggleColors;
+      delete options.toggleColors;
     }
     if(options.hasOwnProperty('useTransition') && typeof options.useTransition === 'boolean') {
       this.#options.useTransition = options.useTransition;
+      delete options.useTransition;
     }
     if(options.hasOwnProperty('transition')) {
       this.#options.transition = options.transition;
+      delete options.transition;
     }
     if(this.#options.useTransition === true) {
       this.#inputField.style['transition'] = this.#options.transition;
@@ -86,10 +82,25 @@ class PhoneValidatorFE {
           this.#toggleValid();
         }
       }
+      delete options.colors;
     }
     if(options.hasOwnProperty('precise')) {
       this.#options.precise = options.precise;
+      delete options.precise;
     }
+  }
+
+  #setIti(options) {
+    let itiOptions = {
+      utilsScript: '../intltelinput/js/utils.js',
+      showSelectedDialCode: true,
+      initialCountry: 'US'
+    };
+    itiOptions = {
+      ...itiOptions,
+      ...options
+    }
+    this.#iti = intlTelInput(this.#inputField, itiOptions);
   }
 
   /*

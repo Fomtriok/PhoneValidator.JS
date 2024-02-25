@@ -115,25 +115,49 @@ const htmlIds = { formId: 'formId', inputFieldId: 'inputId' };
 let phoneValidator = new PhoneValidatorFE(htmlIds);
 ```
 
-**(Extra).** If you want to disable or change the the background color toggle, or use imprecise validation based on only on number length, you may provide a second ```options``` argument to the ```PhoneValidatorFE``` constructor. The full available options are:
+**(Extra).** If you want to disable or change the the background color toggle, or use imprecise validation based on only on number length, you may provide a second ```options``` argument to the ```PhoneValidatorFE``` constructor. The full available ```PhoneValidatorFE``` options and their default values are listed below. You may also provide inteltelinput options via the same ```options``` object. For the full available intl-tel-input options, see [intl-tel-input](https://github.com/jackocnr/intl-tel-input).
+
+_For instance you may want to change the initial country - an intl-tel-input option. Also, if you want to hide the numeric country code next to the flag, provide the ```showSelectedDialCode``` property and set it to false._
 
 ```javascript
 const options = {
-  toggleColors: true,           /* Default is true. */
+
+  /* The default PhoneValidatorFE options: */
+  
+  toggleColors: true,
   colors: {
-    valid: '#e4f8e2',           /* Default color here. (1) */
-    invalid: '#f8e2e2',         /* Default color here. (2) */
-    default: '#ffffff'          /* Default color here. */
+    valid: '#e4f8e2', /* See (1) below. */
+    invalid: '#f8e2e2', /* See (2) below. */
+    default: '#ffffff'
   },
-  useTransition: true,          /* Default is true. */
-  transition: 'all 0.3s ease',  /* Default transition here. */
-  precise: true                 /* Default is true. */
+  useTransition: true,
+  transition: 'background-color 0.3s ease',
+  precise: true,
+
+  /* The default intl-tel-input options: */
+  
+  utilsScript: '../intltelinput/js/utils.js',
+  showSelectedDialCode: true,
+  initialCountry: 'US'
+
 };
 ```
 
 (1) ![#e4f8e2](https://placehold.co/15x15/e4f8e2/e4f8e2.png)
 
 (2) ![#f8e2e2](https://placehold.co/15x15/f8e2e2/f8e2e2.png)
+
+For instance, as an example you may try:
+
+```javascript
+let options = {
+  showSelectedDialCode: false, /* An intl-tel-input option. */
+  initialCountry: 'FR', /* An intl-tel-input option. */
+  colors: {invalid: '#FF0000'} /* A PhoneValidatorFE option. */
+};
+```
+
+_If you want to see precise or imprecise validation in action. Try the US number '(999) 999-9999'. The frontend validates it positively with imprecise validation, but not with precise. Backend validation fails in either way._
 
 ```javascript
 let phoneValidator = new PhoneValidatorFE(htmlIds, options);
