@@ -119,6 +119,8 @@ let phoneValidator = new PhoneValidatorFE(htmlIds);
 
 _For instance you may want to change the initial country - an intl-tel-input option. Also, if you want to hide the numeric country code next to the flag, provide the ```showSelectedDialCode``` property and set it to false._
 
+**Optional second argument, has these default values:**
+
 ```javascript
 const options = {
 
