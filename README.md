@@ -1,11 +1,12 @@
 ## PhoneValidator.JS - Frontend and backend validation in tandem
 
-### Three lines front-end and two lines back-end
-> You get frontend and backend validation working together, a color toggle for valid/invalid number, and the resulting formatted domestic and international number plus full country name, country code and region code.
+![version](https://img.shields.io/badge/version-1.0.1-blue)
 
-**PhoneValidator.JS** is a wrapper for both frontend and backend validation of international phone numbers using well maintained existing libraries. Front-end as-you-type validation is done via [intl-tel-input](https://github.com/jackocnr/intl-tel-input), and backend validation and formatting is done via [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber) for Node. The two libraries are wrapped in the class ```PhoneValidator``` for the backend and ```PhoneValidatorFE``` for the frontend.
+> Three lines front-end and two lines back-end gives you validation working for both client and server.
 
-Aside from tying the libraries together in a plug-and-play fashion, **PhoneValidator.JS** adds a few small extra features, such as toggling of the input field background color for valid/invalid, which you may disable, and back-end it returns country name among other properties in the augmented ```number``` object.
+**PhoneValidator.JS** is a wrapper for both frontend and backend validation of international phone numbers using well maintained existing libraries. Front-end as-you-type validation is done via [intl-tel-input](https://github.com/jackocnr/intl-tel-input), and backend validation and formatting is done via [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber) for Node.
+
+Aside from tying the libraries together in a plug-and-play fashion, **PhoneValidator.JS** adds a few small extra features, such as toggling of the input field background color for valid/invalid number, which you may disable, and back-end it returns country name among other properties in the augmented ```number``` object.
 
 **Three lines front-end**
 ```javascript
@@ -40,21 +41,33 @@ If valid, the ```number``` object now contains for instance:
 };
 ```
 
-Example when the phone number is positively validated by the frontend class ```PhoneValidatorFE``` - **the input field background is included in the JS toggle, all other CSS styling is custom for the demo**:
+Example when the phone number is positively validated by the frontend class ```PhoneValidatorFE``` - the input field background is included in the JS toggle, all other CSS styling is custom for the demo:
 
 ![Demo Image - Valid Frontend](demoImages/valid-frontend.png)
 
-Resulting object augmented by the backend class ```PhoneValidator``` upon positive validation - **returning to the frontend just for the demo**:
+Resulting object augmented by the backend class ```PhoneValidator``` upon positive validation - returning to the frontend just for the demo:
 
 ![Demo Image - Valid Frontend](demoImages/valid-backend.png)
 
-**Brief setup instructions - [Or go to detailed instructions](#detailed-instructions)**
+**Brief setup instructions**
 
-**1** Download **PhoneValidator.JS** and put ```src/phoneValidator/``` in your src directory for the backend, and put the ```public/phoneValidatorFE/``` in your public directory for the frontend. Include the two classes where you will use them.
+**1.** Download **PhoneValidator.JS**
 
-**2** Install [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber) for the backend via ```npm install --save-prod google-libphonenumber```, and download [intl-tel-input](https://github.com/jackocnr/intl-tel-input) for the frontend and put in a public directory. The required files are: ```build/css/intlTelInput.min.css```, ```build/img/flags.png```, ```build/img/flags@2x.png```, ```build/js/data.min.js```, ```build/js/intlTelInput.min.js``` and ```build/js/utils.js```.
+- Put ```src/phoneValidator/``` in your src directory for the backend.
 
-**3** Include the ```intelTelInput.min.js``` script and the ```intelTelInput.min.css``` file. Set correct paths to ```flags.png``` and ```flags@2x.png``` in the ```intlTelInput.min.css``` file, and check that the path to ```utils.js``` is correct in ```PhoneValidatorFE```.
+- Put the ```public/phoneValidatorFE/``` in your public directory for the frontend.
+
+- Include the two classes where you will use them.
+
+**2.** Install [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber) for the backend
+
+- ```npm install --save-prod google-libphonenumber```
+
+**3.** Download [intl-tel-input](https://github.com/jackocnr/intl-tel-input) for the frontend and put in a public directory.
+
+- The required files are: ```build/css/intlTelInput.min.css```, ```build/img/flags.png```, ```build/img/flags@2x.png```, ```build/js/data.min.js```, ```build/js/intlTelInput.min.js``` and ```build/js/utils.js```.
+
+**4.** Include the ```intelTelInput.min.js``` script and the ```intelTelInput.min.css``` file. Set correct paths to ```flags.png``` and ```flags@2x.png``` in the ```intlTelInput.min.css``` file, and check that the path to ```utils.js``` is correct in ```PhoneValidatorFE```.
 
 ## Why PhoneValidator.JS
 
