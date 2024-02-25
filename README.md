@@ -2,7 +2,7 @@
 
 ![version](https://img.shields.io/badge/version-1.0.1-blue)
 
-> Three lines front-end and two lines back-end gives you validation working for both client and server.
+> Three lines front-end and two lines back-end gives you validation working for both client and server. If you only want the backend part, you can of course use only that, still with just two lines of code.
 
 **PhoneValidator.JS** is a wrapper for both frontend and backend validation of international phone numbers using well maintained existing libraries. Front-end as-you-type validation is done via [intl-tel-input](https://github.com/jackocnr/intl-tel-input), and backend validation and formatting is done via [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber) for Node.
 
@@ -12,7 +12,7 @@ Aside from tying the libraries together in a plug-and-play fashion, **PhoneValid
 ```javascript
 const htmlIds = { formId: 'formId', inputFieldId: 'inputId' };
 ```
-The following line also adds the hidden fields ```countryCode``` and ```domesticPortion```.
+The following line also adds the hidden fields ```countryCode``` and ```domesticPortion```. If you via JS call an API rather than conventionally submit the form, loop the input fields and build a ```formData``` object to include these fields in the ```fetch()``` call.
 ```javascript
 let phoneValidator = new PhoneValidatorFE(htmlIds);
 ```
@@ -192,7 +192,7 @@ if(phoneValidator.validNumber()) {
 }
 ```
 
-If you are not submitting the form conventionally, as we are in the demos, but rather using JS to call an API, you must loop the input fields adding them to your ```formData``` object, for the two hidden fields to be included.
+If you are not submitting the form conventionally, as we are in the demos, but are rather using JS to call an API, it is easiest to loop the input fields adding them to the ```formData``` object that you provide to the ```fetch()``` call, for the two hidden fields to be included.
 
 ### Backend
 
