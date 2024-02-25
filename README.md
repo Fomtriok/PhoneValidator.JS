@@ -55,23 +55,23 @@ Resulting ```number``` object augmented by the backend class ```PhoneValidator``
 
 - Put ```src/phoneValidator/``` in your src directory for the backend.
 
-- Put the ```public/phoneValidatorFE/``` in your public directory for the frontend.
+- Put ```public/phoneValidatorFE/``` in your public directory for the frontend.
 
 - Include the two classes where you will use them.
 
-**2.** Install [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber) for the backend
+**2.** Install [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber) for the backend.
 
 - ```npm install --save-prod google-libphonenumber```
 
-**3.** Download [intl-tel-input](https://github.com/jackocnr/intl-tel-input) for the frontend and put in a public directory.
+**3.** Download [intl-tel-input](https://github.com/jackocnr/intl-tel-input) for the frontend and put it in a public directory.
 
 - The required files are: ```build/css/intlTelInput.min.css```, ```build/img/flags.png```, ```build/img/flags@2x.png```, ```build/js/data.min.js```, ```build/js/intlTelInput.min.js``` and ```build/js/utils.js```.
 
-**4.** Include the ```intelTelInput.min.js``` script and the ```intelTelInput.min.css``` file. Set correct paths to ```flags.png``` and ```flags@2x.png``` in the ```intlTelInput.min.css``` file, and check that the path to ```utils.js``` is correct in ```PhoneValidatorFE```.
+**4.** Include the ```intlTelInput.min.js``` script and the ```intlTelInput.min.css``` file. Set correct paths to ```flags.png``` and ```flags@2x.png``` in the ```intlTelInput.min.css``` file (those may need to be absolute depending on your stack), and check that the path to ```utils.js``` is correct in ```PhoneValidatorFE```.
 
 ## Why PhoneValidator.JS
 
-- **Fast and easy.** That’s the whole point of PhoneValidator.JS - to quickly get a working solution implemented that combines frontend and backend validation.
+- **Fast and easy.** That’s the whole point of it - to quickly get a working solution implemented that combines frontend and backend validation.
 
   - **Frontend customization:** If you want to, you may provide any ```intltelinput``` options inside an optional second argument to the ```PhoneValidatorFE``` constructor. For a full list of options see [intl-tel-input](https://github.com/jackocnr/intl-tel-input).
 
@@ -85,9 +85,9 @@ Resulting ```number``` object augmented by the backend class ```PhoneValidator``
 
   - The input field now also removes double blankspace and leading whitespace, and before a valid phone number is sent back-end trailing whitespace is also removed.
 
-- A few things have also been added back-end, such as returning not only the full formatted number, but also country name (e.g. ```Sweden```), country code (e.g. ```1``` for America), and region code (e.g. ```US```, ```CA``` or ```VA```). Some countries or geographical areas, such as America, the UK and Australia, have several region codes for a single numeric country code, the correct one getting returned depending on the domestic number provided.
+- A few things have also been added back-end, such as returning not only the full formatted domestic and international number, but also country name (e.g. ```Sweden```), country code (e.g. ```1``` for America), and region code (e.g. ```US```, ```CA``` or ```VA```). Some countries or geographical areas, such as America, the UK and Australia, have several region codes for a single numeric country code, the correct one getting returned depending on the domestic number provided.
 
-  - Also, back-end the parser crashes execution if an invalid number is provided, so we catch that and instead return ```false``` if the number is invalid.
+  - Also, back-end the parser may crash execution if an invalid number is provided, so we catch that and always return ```false``` if the number is invalid.
 
 ## Why not PhoneValidator.JS
 
@@ -97,8 +97,8 @@ Resulting ```number``` object augmented by the backend class ```PhoneValidator``
 
 ### Terms for different codes
 
-- The official term for region code is "ISO 3166-1 alpha-2 country codes".
-- Other terms for country code are "Country Calling Code" or "Country Dial-In Code".
+- The official term for alphabetic region code, e.g. ```US```, is "ISO 3166-1 alpha-2 Country Code".
+- Other terms for numeric country code, e.g. ```+1```, are "Country Calling Code" or "Country Dial-In Code".
 
 ### "Domestic number" vs. "domestic portion"
 
@@ -110,9 +110,9 @@ Different countries have different rules for how numbers must start when called 
 
 **2.** Download [intl-tel-input](https://github.com/jackocnr/intl-tel-input) and put the files in a public directory, or install via npm, for the frontend. The required files are: ```build/css/intlTelInput.min.css```, ```build/img/flags.png```, ```build/img/flags@2x.png```, ```build/js/data.min.js```, ```build/js/intlTelInput.min.js``` and ```build/js/utils.js```.
 
-&nbsp;&nbsp;&nbsp;&nbsp;**a.** Include the ```intelTelInput.min.js``` script and the ```intelTelInput.min.css``` file.
+&nbsp;&nbsp;&nbsp;&nbsp;**a.** Include the ```intlTelInput.min.js``` script and the ```intlTelInput.min.css``` file.
 
-&nbsp;&nbsp;&nbsp;&nbsp;**b.** Set correct paths to ```flags.png``` and ```flags@2x.png``` in the ```intlTelInput.min.css``` file. _Depending on what frontend stack you are using, you may need to make the paths absolute._
+&nbsp;&nbsp;&nbsp;&nbsp;**b.** Set correct paths to ```flags.png``` and ```flags@2x.png``` in the ```intlTelInput.min.css``` file. _Depending on what frontend stack you are using, you may need to make those paths absolute._
 
 &nbsp;&nbsp;&nbsp;&nbsp;**c.** Check that the path to ```utils.js``` is correct in ```PhoneValidatorFE```.
 
@@ -132,7 +132,7 @@ const htmlIds = { formId: 'formId', inputFieldId: 'inputId' };
 let phoneValidator = new PhoneValidatorFE(htmlIds);
 ```
 
-**(Extra).** If you want to disable or change the the background color toggle, or use imprecise validation based on only on number length, you may provide a second ```options``` argument to the ```PhoneValidatorFE``` constructor. The full available ```PhoneValidatorFE``` options and their default values are listed below. You may also provide inteltelinput options via the same ```options``` object. For the full available intl-tel-input options, see [intl-tel-input](https://github.com/jackocnr/intl-tel-input).
+**(Extra).** If you want to disable or change the the background color toggle, or use imprecise validation based only on number length, you may provide a second ```options``` argument to the ```PhoneValidatorFE``` constructor. The full available ```PhoneValidatorFE``` options and their default values are listed below. You may also provide **intltelinput** options via the same ```options``` object. For the full available intl-tel-input options, see [intl-tel-input](https://github.com/jackocnr/intl-tel-input).
 
 _For instance you may want to change the initial country - an intl-tel-input option. Also, if you want to hide the numeric country code next to the flag, provide the ```showSelectedDialCode``` property and set it to false._
 
