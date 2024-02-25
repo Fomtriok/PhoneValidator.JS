@@ -50,7 +50,6 @@ input, button {
   color: inherit;
   height: 2.5rem;
   width: 100%;
-  transition: all 0.3s ease;
 }
 
 input {
@@ -61,6 +60,7 @@ input {
 button {
   color: #FFF;
   background-color: #428BCA;
+  transition: all 0.3s ease;
 }
 
 button:hover {

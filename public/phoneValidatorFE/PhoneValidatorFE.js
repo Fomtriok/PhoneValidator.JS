@@ -79,7 +79,7 @@ class PhoneValidatorFE {
           this.#options.colors[color] = options.colors[color];
         }
         if(color === 'default') {
-          this.#toggleValid();
+          this.#setBackgroundColor(this.#options.colors['default']);
         }
       }
       delete options.colors;
@@ -157,6 +157,10 @@ class PhoneValidatorFE {
     this.#form.querySelector('#domesticPortion').value = this.#inputField.value.trim();
   }
 
+  #setBackgroundColor(color) {
+    this.#inputField.style['background-color'] = color;
+  }
+
   /*
     Toggle white/green/red input field.
   */
@@ -170,17 +174,17 @@ class PhoneValidatorFE {
       this.#setValidNumber();
       if(this.#options.toggleColors === true &&
          !this.#inputField.style['background-color'] !== this.#options.colors['valid']) {
-        this.#inputField.style['background-color'] = this.#options.colors['valid'];
+        this.#setBackgroundColor(this.#options.colors['valid']);
       }
     } else {
       this.#setInvalidNumber();
       if(this.#options.toggleColors === true) {
         if(this.#inputField.value.length !== 0) {
           if(!this.#inputField.style['background-color'] !== this.#options.colors['invalid']) {
-            this.#inputField.style['background-color'] = this.#options.colors['invalid'];
+            this.#setBackgroundColor(this.#options.colors['invalid']);
           }
         } else if(this.#inputField.value.length === 0) {
-          this.#inputField.style['background-color'] = this.#options.colors['default'];
+          this.#setBackgroundColor(this.#options.colors['default']);
         }  
       }
     }
