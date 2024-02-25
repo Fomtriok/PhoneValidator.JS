@@ -2,7 +2,7 @@
   "name": "phonevalidator.js",
   "version": "1.0.1",
   "description": "A wrapper of two existing well maintained libraries for phone number validation, making it easy to quickly implement phone number validation both front-end and back-end.",
-  "main": "server.js",
+  "main": "demoServer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node demoServer.js",
