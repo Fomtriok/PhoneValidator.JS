@@ -73,7 +73,7 @@ Resulting ```number``` object augmented by the backend class ```PhoneValidator``
 
 - **Fast and easy.** That’s the whole point of it - to quickly get a working solution implemented that combines frontend and backend validation.
 
-  - **Frontend customization:** If you want to, you may provide any ```intltelinput``` options inside an optional second argument to the ```PhoneValidatorFE``` constructor. For a full list of options see [intl-tel-input](https://github.com/jackocnr/intl-tel-input).
+  - **Frontend customization:** If you want to, you may provide any ```intl-tel-input``` options inside an optional second argument to the ```PhoneValidatorFE``` constructor. For a full list of options see [intl-tel-input](https://github.com/jackocnr/intl-tel-input).
 
   - **Backend customization:** Likewise, you might want to change things back-end. If you want to add something, see if [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber) has what you need.
 
