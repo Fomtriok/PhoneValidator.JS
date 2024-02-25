@@ -188,7 +188,7 @@ let phoneValidator = new PhoneValidatorFE(htmlIds, options);
 if(phoneValidator.validNumber()) {
   /* Form may be sent, as far as phone number is concerned. */
 } else {
-  /* Prevent form from being sent. */
+  /* Prevent API call or conventional form submission. */
 }
 ```
 
@@ -202,7 +202,7 @@ If you are not submitting the form conventionally, as we are in the demos, but a
 let PhoneValidator = require('/path/to/PhoneValidator');
 ```
 
-**8.** The only public method of ```PhoneValidator``` ```isPhoneNumber()``` takes the object ```number``` as an argument, which requires the following two properties (example of a valid US number). If you use ```PhoneValidatorFE``` front-end these values will have be sent along with the POST request.
+**8.** The only public method of ```PhoneValidator``` ```isPhoneNumber()``` takes the object ```number``` as an argument, which requires the following two properties (example of a valid US number). If you use ```PhoneValidatorFE``` front-end these values will have been sent along with the POST request.
 
 ```javascript
 number: {
