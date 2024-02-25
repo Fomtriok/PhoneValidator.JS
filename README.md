@@ -45,7 +45,7 @@ Example when the phone number is positively validated by the frontend class ```P
 
 ![Demo Image - Valid Frontend](demoImages/valid-frontend.png)
 
-Resulting object augmented by the backend class ```PhoneValidator``` upon positive validation - getting returned to the frontend just for the demo:
+Resulting ```number``` object augmented by the backend class ```PhoneValidator``` upon positive validation - getting returned to the frontend just for the demo:
 
 ![Demo Image - Valid Frontend](demoImages/valid-backend.png)
 
