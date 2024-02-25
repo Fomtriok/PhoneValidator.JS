@@ -132,14 +132,14 @@ const htmlIds = { formId: 'formId', inputFieldId: 'inputId' };
 let phoneValidator = new PhoneValidatorFE(htmlIds);
 ```
 
-**(Extra).** If you want to disable or change the the background color toggle, or use imprecise validation based only on number length, you may provide a second ```options``` argument to the ```PhoneValidatorFE``` constructor. The full available ```PhoneValidatorFE``` options and their default values are listed below. You may also provide **intltelinput** options via the same ```options``` object. For the full available intl-tel-input options, see [intl-tel-input](https://github.com/jackocnr/intl-tel-input).
+**(Extra).** If you want to disable or change the the background color toggle, or use imprecise validation based only on number length, you may provide a second argument ```options``` to the ```PhoneValidatorFE``` constructor. The full available ```PhoneValidatorFE``` options and their default values are listed below. You may also provide ```intl-tel-input``` options via the same ```options``` object. For the full available ```intl-tel-input``` options, see [intl-tel-input](https://github.com/jackocnr/intl-tel-input).
 
 _For instance you may want to change the initial country - an intl-tel-input option. Also, if you want to hide the numeric country code next to the flag, provide the ```showSelectedDialCode``` property and set it to false._
 
 **Optional second argument, has these default values:**
 
 ```javascript
-const options = {
+let options = {
 
   /* The default PhoneValidatorFE options: */
   
@@ -176,7 +176,7 @@ let options = {
 };
 ```
 
-_If you want to see precise or imprecise validation in action. Try the US number '(999) 999-9999'. The frontend validates it positively with imprecise validation, but not with precise. Backend validation fails in either way._
+_If you want to see precise vs. imprecise validation in action, try the US number (999) 999-9999. The frontend validates it positively with imprecise validation, but not with precise. Backend validation returns false either way._
 
 ```javascript
 let phoneValidator = new PhoneValidatorFE(htmlIds, options);
@@ -192,6 +192,8 @@ if(phoneValidator.validNumber()) {
 }
 ```
 
+If you are not submitting the form conventionally, as we are in the demos, but rather using JS to call an API, you must loop the input fields adding them to your ```formData``` object, for the two hidden fields to be included.
+
 ### Backend
 
 **7.** Require the static ```PhoneValidator``` class in your route:
@@ -200,7 +202,7 @@ if(phoneValidator.validNumber()) {
 let PhoneValidator = require('/path/to/PhoneValidator');
 ```
 
-**8.** The only public method of ```PhoneValidator``` ```isPhoneNumber()``` takes the object ```number``` as an argument, which requires the following two properties (example of a valid US number). If you use ```PhoneValidatorFE``` front-end these values will be sent along with the POST request, whether you are using an API or a conventional form submission.
+**8.** The only public method of ```PhoneValidator``` ```isPhoneNumber()``` takes the object ```number``` as an argument, which requires the following two properties (example of a valid US number). If you use ```PhoneValidatorFE``` front-end these values will have be sent along with the POST request.
 
 ```javascript
 number: {
