@@ -58,8 +58,10 @@ Resulting object augmented by the backend class ```PhoneValidator``` upon positi
 
 ## Why PhoneValidator.JS
 
-- **Fast and easy. That’s the whole point of PhoneValidator.JS - to quickly get a working solution implemented that combines frontend and backend validation.**
+- **Fast and easy.** That’s the whole point of PhoneValidator.JS - to quickly get a working solution implemented that combines frontend and backend validation.
+
   - **Frontend customization:** If you want to, you may provide any ```intltelinput``` options inside an optional second argument to the ```PhoneValidatorFE``` constructor. For a full list of options see [intl-tel-input](https://github.com/jackocnr/intl-tel-input).
+
   - **Backend customization:** Likewise, you might want to change things back-end. If you want to add something, see if [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber) has what you need.
 
 - It makes sense to both validate front-end (blocking the sending of the form if the phone number is invalid) and back-end (so as not to store invalid phone numbers in your database).
