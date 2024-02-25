@@ -1,6 +1,6 @@
 ## PhoneValidator.JS - Frontend and backend validation in tandem
 
-### Three lines front-end and two lines back-end.
+### Three lines front-end and two lines back-end
 > You get frontend and backend validation working together, a color toggle for valid/invalid number, and the resulting formatted domestic and international number plus full country name, country code and region code.
 
 **PhoneValidator.JS** is a wrapper for both frontend and backend validation of international phone numbers using well maintained existing libraries. Front-end as-you-type validation is done via [intl-tel-input](https://github.com/jackocnr/intl-tel-input), and backend validation and formatting is done via [google-libphonenumber](https://github.com/ruimarinho/google-libphonenumber) for Node. The two libraries are wrapped in the class ```PhoneValidator``` for the backend and ```PhoneValidatorFE``` for the frontend.
