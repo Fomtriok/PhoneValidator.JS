@@ -12,7 +12,7 @@ Aside from tying the libraries together in a plug-and-play fashion, **PhoneValid
 ```javascript
 const htmlIds = { formId: 'formId', inputFieldId: 'inputId' };
 ```
-The following line also adds the hidden fields ```countryCode``` & ```domesticPortion```.
+The following line also adds the hidden fields ```countryCode``` and ```domesticPortion```.
 ```javascript
 let phoneValidator = new PhoneValidatorFE(htmlIds);
 ```
