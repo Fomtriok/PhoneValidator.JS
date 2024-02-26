@@ -81,7 +81,7 @@ Resulting ```number``` object augmented by the backend class ```PhoneValidator``
 // Bare-bones demo.
 localhost:4444/
 
-// Demo you see imgages of above.
+// Demo you see images of above.
 localhost:4444/demoWithMoreDesign
 ```
 
