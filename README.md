@@ -71,11 +71,11 @@ Resulting ```number``` object augmented by the backend class ```PhoneValidator``
 
 **Run demos**
 
-1. Clone repository.
+**1.** Clone repository.
 
-2. ```npm install```, and point **3** and **4** in brief setup instructions above.
+**2.** ```npm install```, and point **3** and **4** in brief setup instructions above.
 
-3. ```npm run dev```
+**3.** ```npm run dev```
 
 ```
 // Bare-bones demo.
