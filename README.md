@@ -69,6 +69,22 @@ Resulting ```number``` object augmented by the backend class ```PhoneValidator``
 
 **4.** Include the ```intlTelInput.min.js``` script and the ```intlTelInput.min.css``` file. Set correct paths to ```flags.png``` and ```flags@2x.png``` in the ```intlTelInput.min.css``` file (those may need to be absolute depending on your stack), and check that the path to ```utils.js``` is correct in ```PhoneValidatorFE```.
 
+**Run demos**
+
+1. Clone repository.
+
+2. ```npm install```
+
+3. ```npm run dev```
+
+```
+// Bare-bones demo.
+localhost:4444/
+
+// Demo you see imgages of above.
+localhost:4444/demoWithMoreDesign
+```
+
 ## Why PhoneValidator.JS
 
 - **Fast and easy.** That’s the whole point of it - to quickly get a working solution implemented that combines frontend and backend validation.
