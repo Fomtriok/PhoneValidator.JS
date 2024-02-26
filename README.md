@@ -73,7 +73,7 @@ Resulting ```number``` object augmented by the backend class ```PhoneValidator``
 
 1. Clone repository.
 
-2. ```npm install```
+2. ```npm install```, and point **3** and **4** in brief setup instructions above.
 
 3. ```npm run dev```
 
